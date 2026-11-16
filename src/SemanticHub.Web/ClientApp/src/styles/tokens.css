@@ -1,0 +1,157 @@
+/* Design tokens (design §5.4). Light on :root, dark on [data-theme="dark"]. */
+:root {
+  color-scheme: light;
+
+  /* neutrals */
+  --bg: #eff1f4;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --surface-3: #e7eaef;
+  --border: #e0e3e8;
+  --border-strong: #c9ced6;
+  --text: #15181e;
+  --text-2: #3b414c;
+  --muted: #5d6471;
+
+  /* accent (indigo-blue) */
+  --accent: #4553cf;
+  --accent-hover: #3a47b8;
+  --accent-text: #3d4ac4;
+  --accent-soft: #eceefc;
+  --accent-contrast: #ffffff;
+  --focus: #4553cf;
+
+  /* semantic */
+  --good: #0b7a3e;
+  --good-soft: #e5f4eb;
+  --good-dot: #12a150;
+  --bad: #c22f2f;
+  --bad-soft: #fbeaea;
+  --warn: #9a5b00;
+  --warn-soft: #fdf2df;
+  --warn-dot: #e09b10;
+
+  /* chart chrome */
+  --chart-grid: #eceef1;
+  --chart-axis: #c9ced6;
+  --chart-label: #5d6471;
+
+  /* categorical chart palette — validated (dataviz validator, adjacent pairs) on #ffffff */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #6250d6;
+  --series-8: #e34948;
+
+  /* DAX highlighting */
+  --code-bg: #f6f7f9;
+  --code-keyword: #7a3fc4;
+  --code-function: #2559b8;
+  --code-string: #a3420f;
+  --code-column: #0d7360;
+  --code-measure: #a12d6b;
+  --code-number: #8a5a00;
+  --code-comment: #6b7280;
+
+  /* shape */
+  --radius-card: 10px;
+  --radius-ctl: 8px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.04);
+  --shadow-2: 0 8px 24px rgba(16, 24, 40, 0.1), 0 2px 6px rgba(16, 24, 40, 0.06);
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-lift: 0 14px 32px rgba(16, 24, 40, 0.16), 0 3px 8px rgba(16, 24, 40, 0.08);
+  --overlay: rgba(15, 18, 25, 0.38);
+  --skeleton: #eceef2;
+  --skeleton-shine: #f6f7f9;
+
+  /* type */
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs: 13px;
+  --fs-md: 14px;
+  --fs-lg: 16px;
+  --fs-xl: 20px;
+  --fs-kpi: 30px;
+
+  /* spacing (4-pt) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+
+  --sidebar-w: 240px;
+  --sidebar-w-collapsed: 64px;
+  --topbar-h: 56px;
+  --chat-w: 400px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b0c0f;
+  --surface: #181a1f;
+  --surface-2: #1f2228;
+  --surface-3: #282c33;
+  --border: #2a2e37;
+  --border-strong: #3a3f49;
+  --text: #eceef2;
+  --text-2: #c8ccd4;
+  --muted: #9aa1ad;
+
+  --accent: #8b93f0;
+  --accent-hover: #a2a9f4;
+  --accent-text: #a5acf5;
+  --accent-soft: #252946;
+  --accent-contrast: #0f1115;
+  --focus: #a5acf5;
+
+  --good: #4cc483;
+  --good-soft: #15291e;
+  --good-dot: #2fbf6c;
+  --bad: #f07a7a;
+  --bad-soft: #351b1d;
+  --warn: #eaa94a;
+  --warn-soft: #33270f;
+  --warn-dot: #eaa94a;
+
+  --chart-grid: #262a31;
+  --chart-axis: #3a3f49;
+  --chart-label: #9aa1ad;
+
+  /* same eight hues, stepped for the dark surface (validated on #181a1f) */
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+
+  --code-bg: #14161a;
+  --code-keyword: #c49bf5;
+  --code-function: #79a8f5;
+  --code-string: #f0a070;
+  --code-column: #5fd0b4;
+  --code-measure: #f08cc0;
+  --code-number: #e6c06a;
+  --code-comment: #8a919c;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 16px 40px rgba(0, 0, 0, 0.6), 0 3px 10px rgba(0, 0, 0, 0.4);
+  --overlay: rgba(0, 0, 0, 0.55);
+  --skeleton: #22252b;
+  --skeleton-shine: #2a2e35;
+}

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SemanticHub.Core\SemanticHub.Core.csproj" />
+    <ProjectReference Include="..\SemanticHub.Connectors\SemanticHub.Connectors.csproj" />
+    <ProjectReference Include="..\SemanticHub.Agent\SemanticHub.Agent.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- The React source (and its node_modules) is not part of the .NET build; its output lands in wwwroot. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);ClientApp\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <!-- Release builds rebuild the React app; Debug uses the committed wwwroot output so `dotnet run` stays fast.
+       Frontend dev loop: `npm run dev` in ClientApp (Vite on :5173, proxies /api to :5080). -->
+  <Target Name="BuildClientApp" BeforeTargets="Build" Condition="'$(Configuration)' == 'Release' And Exists('ClientApp\package.json')">
+    <Exec WorkingDirectory="ClientApp" Command="npm ci" />
+    <Exec WorkingDirectory="ClientApp" Command="npm run build" />
+  </Target>
+
+</Project>

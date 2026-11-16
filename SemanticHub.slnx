@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SemanticHub.Agent/SemanticHub.Agent.csproj" />
+    <Project Path="src/SemanticHub.Connectors/SemanticHub.Connectors.csproj" />
+    <Project Path="src/SemanticHub.Core/SemanticHub.Core.csproj" />
+    <Project Path="src/SemanticHub.Web/SemanticHub.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SemanticHub.Tests/SemanticHub.Tests.csproj" />
+  </Folder>
+</Solution>
