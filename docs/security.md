@@ -47,5 +47,5 @@ Semantic Hub lets an AI query your data, so the controls sit in code, not in the
 | npm advisories (DOMPurify XSS, React Router open redirects, ECharts XSS, Vite/esbuild dev-server issues) | **All fixed 2026-11-16**: DOMPurify 3.4.18, React Router 7.18.5, ECharts 6.1.0, Vite 6.4.6. `npm audit`: 0 vulnerabilities; `dotnet list package --vulnerable`: none |
 | Keep it that way | Run `npm audit` (in `ClientApp`) and `dotnet list package --vulnerable --include-transitive` before each release |
 | No authentication on the API | By design for a single-user local app; needed before any shared or hosted use |
-| Claude provider not tested end to end | Open |
+| Claude provider | Experimental and untested by decision; the supported setup is the local provider. If you enable it, data goes to the Anthropic API |
 | Service connector (REST + MSAL delegated) | Not built; must keep rules 1–6 |

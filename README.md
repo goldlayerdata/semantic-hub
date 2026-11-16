@@ -52,5 +52,5 @@ Design history: [v1 spec](docs/v1-local-spec.md) → [v2 requirements](docs/v2-u
 ## Status (2026-11-16)
 
 - **Working:** Desktop discovery and registry; schema harvest with a data profile; AI-designed and built-in dashboards; filters; explain; CSV export; grid layout with drag and resize; chat with live progress, chart answers and pin; add tile by request; audit log; local LLM (LM Studio + Qwen3 14B).
-- **Untested:** the Claude (Anthropic API) provider path.
+- **Experimental, untested by decision:** the Claude (Anthropic API) provider. The supported setup is the local model (LM Studio + Qwen3 14B).
 - **Not started:** the Power BI service connector (REST `executeQueries` + MSAL sign-in) and the evaluation set (brief phases 5 and 6).

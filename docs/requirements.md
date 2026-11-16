@@ -51,11 +51,11 @@ Smaller models (7–8B) work but write wrong DAX more often. The designer drops 
 ```
 The `lms` CLI needs the LM Studio app to be running.
 
-## AI model (Claude, optional)
+## AI model (Claude, experimental — untested)
 
 `Llm:Provider = "claude"` plus an `ANTHROPIC_API_KEY` environment variable. The model is `claude-opus-5-5` (`Claude:Model`).
 - **Data leaves the PC:** schema and query results are sent to the Anthropic API.
-- **Not yet tested end to end.**
+- **Experimental and untested by decision.** The code path exists but is not supported; use the local provider.
 
 ## Network and ports
 
