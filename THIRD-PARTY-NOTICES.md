@@ -6,10 +6,10 @@ Semantic Hub is MIT licensed (see [LICENSE](LICENSE)). It uses the open-source c
 
 | Component | Licence |
 |---|---|
-| [Apache ECharts](https://echarts.apache.org/) 5.5 | Apache-2.0 |
-| [ZRender](https://github.com/ecomfe/zrender) (used by ECharts) | BSD-3-Clause |
+| [Apache ECharts](https://echarts.apache.org/) 6.1 | Apache-2.0 |
+| [ZRender](https://github.com/ecomfe/zrender) 6.1 (used by ECharts) | BSD-3-Clause |
 | [React, React DOM](https://react.dev/) 18.3 | MIT |
-| [React Router](https://reactrouter.com/) 6.30 | MIT |
+| [React Router](https://reactrouter.com/) 7.18 | MIT |
 | [Zustand](https://github.com/pmndrs/zustand) 4.5 | MIT |
 | [dnd kit](https://dndkit.com/) 6.1 | MIT |
 | [marked](https://marked.js.org/) 12.0 | MIT |
@@ -21,7 +21,7 @@ Semantic Hub is MIT licensed (see [LICENSE](LICENSE)). It uses the open-source c
 
 ```
 Apache ECharts
-Copyright 2017-2024 The Apache Software Foundation
+Copyright 2017-2026 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
@@ -39,7 +39,7 @@ The Apache Software Foundation (https://www.apache.org/).
 
 ## Build tools (not shipped)
 
-Vite, TypeScript and @vitejs/plugin-react (MIT), used only to build the frontend.
+Vite 6, TypeScript and @vitejs/plugin-react (MIT), used only to build the frontend.
 
 ## Not included
 

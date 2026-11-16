@@ -178,7 +178,7 @@ function buildOption(kindIn: TileKind, format: TileFormat, columns: QueryColumn[
   return {
     animationDuration: 300,
     aria: { enabled: true },
-    grid: { left: 4, right: horizontal ? (labelBars ? 56 : 20) : 12, top: multi ? 34 : labelBars ? 20 : 12, bottom: 4, containLabel: true },
+    grid: { left: 4, right: horizontal ? (labelBars ? 56 : 20) : 12, top: multi ? 34 : labelBars ? 20 : 12, bottom: 4, outerBoundsMode: "same", outerBoundsContain: "axisLabel" },   // ECharts 6 form of the old containLabel: the margins enclose the axis labels
     legend: multi
       ? { top: 0, left: 0, type: "scroll", icon: "roundRect", itemWidth: 10, itemHeight: 10, textStyle: { ...textStyle, color: t.text }, pageTextStyle: textStyle }
       : undefined,
