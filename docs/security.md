@@ -44,8 +44,8 @@ Semantic Hub lets an AI query your data, so the controls sit in code, not in the
 
 | Item | Status |
 |---|---|
-| npm advisories: **DOMPurify** (XSS, fixed in 3.4.x), **React Router** (open redirect, fixed in 6.30.x) | Open. Minor upgrades; DOMPurify matters most because it sanitises AI output |
-| npm advisory: **ECharts** XSS (fixed in 6.x, a major upgrade) | Open. Tooltip text built by the app is HTML-escaped |
+| npm advisories: **DOMPurify** (XSS) and **React Router** (open redirect) | **Fixed 2026-11-16**: DOMPurify 3.4.18, React Router 6.30.6 |
+| npm advisory: **ECharts** XSS (fixed in 6.x, a major upgrade) | Open (moderate). Tooltip text built by the app is HTML-escaped; upgrade to ECharts 6 planned |
 | No authentication on the API | By design for a single-user local app; needed before any shared or hosted use |
 | Claude provider not tested end to end | Open |
 | Service connector (REST + MSAL delegated) | Not built; must keep rules 1–6 |

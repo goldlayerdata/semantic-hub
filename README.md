@@ -43,6 +43,12 @@ npm run dev:mock      # then open http://localhost:5173/models/demo-retail
 
 Design history: [v1 spec](docs/v1-local-spec.md) → [v2 requirements](docs/v2-ui-requirements.md) and [v2 design](docs/v2-ui-design.md) → [v3 design](docs/v3-ui-design.md).
 
+## License
+
+[MIT](LICENSE): free to use, change and share, including commercially, as long as the copyright notice and licence text stay with the code. If Semantic Hub helps you, a link back to [goldlayerdata](https://github.com/goldlayerdata) is appreciated. Third-party components and their licences are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+**Use it locally.** The app has no login and listens on `localhost` only. Don't expose it on a network as-is ([security.md](docs/security.md)).
+
 ## Status (2026-11-16)
 
 - **Working:** Desktop discovery and registry; schema harvest with a data profile; AI-designed and built-in dashboards; filters; explain; CSV export; grid layout with drag and resize; chat with live progress, chart answers and pin; add tile by request; audit log; local LLM (LM Studio + Qwen3 14B).
