@@ -9,6 +9,8 @@ Semantic Hub turns the Power BI models open on your PC into live dashboards you 
 | **Ask AI** | A chat beside the dashboard. It answers with numbers from DAX queries it runs, shows its steps live, draws the result as a chart, and lets you pin an answer to the dashboard. |
 | **Lock-down** | Read-only queries only, registered models only, row/time/tool-call limits, and an audit log of every query. The browser never sends DAX. |
 
+> **Local only, no sign-in.** Semantic Hub is a single-user app for your own PC. It has no login and listens on `localhost` only. Don't expose it on a network or host it as-is. See [docs/security.md](docs/security.md).
+
 ## Quick start
 
 You need Windows, the .NET 10 SDK, Power BI Desktop and LM Studio with Qwen3 14B. The full list is in [docs/requirements.md](docs/requirements.md).
@@ -38,6 +40,7 @@ npm run dev:mock      # then open http://localhost:5173/models/demo-retail
 | [docs/security.md](docs/security.md) | Lock-down rules, what stays local, threat model |
 | [docs/development.md](docs/development.md) | Code layout, build, tests, mock API, conventions, known gotchas |
 | [docs/troubleshooting.md](docs/troubleshooting.md) | Common problems and fixes |
+| [docs/demo-script.md](docs/demo-script.md) | Shot list for a 60–90 s demo recording |
 | [docs/v2-api.md](docs/v2-api.md) | HTTP API reference (current) |
 | [BRIEF.md](BRIEF.md) | The original project brief and phases |
 
