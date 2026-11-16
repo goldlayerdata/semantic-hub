@@ -100,6 +100,21 @@ public sealed class LocalLlm(LlmOptions options, ILogger<LocalLlm> logger)
         MaxOutputTokens = options.LocalMaxOutputTokens,
     };
 
+    /// <summary>The server's own error text (OpenAI-style {"error": {"message": …}} or {"error": "…"}), if the response has one.</summary>
+    private static string? ServerError(ClientResultException cre)
+    {
+        try
+        {
+            var body = cre.GetRawResponse()?.Content?.ToString();
+            if (string.IsNullOrWhiteSpace(body)) return null;
+            using var doc = JsonDocument.Parse(body);
+            if (!doc.RootElement.TryGetProperty("error", out var err)) return null;
+            var msg = err.ValueKind == JsonValueKind.Object && err.TryGetProperty("message", out var m) ? m.GetString() : err.ValueKind == JsonValueKind.String ? err.GetString() : null;
+            return string.IsNullOrWhiteSpace(msg) ? null : (msg.Length > 300 ? msg[..300] + "…" : msg);
+        }
+        catch { return null; }
+    }
+
     /// <summary>Maps transport/server errors to a message the user can act on.</summary>
     public Exception Translate(Exception ex) => ex switch
     {
@@ -108,7 +123,9 @@ public sealed class LocalLlm(LlmOptions options, ILogger<LocalLlm> logger)
         ClientResultException { Status: 0 } => new LlmUnavailableException($"Can't reach the local model server at {Endpoint}. Start LM Studio's server and load a model.", ex),
         ClientResultException cre when cre.Message.Contains("context", StringComparison.OrdinalIgnoreCase) =>
             new HubException("The local model's context window is too small for this model's schema. In LM Studio, reload the model with a larger context length (16k or more)."),
-        ClientResultException cre => new HubException($"The local model server returned an error: {cre.Message.Split('\n')[0]}"),
+        ClientResultException cre when ServerError(cre) is { } detail && (detail.Contains("DeviceLost", StringComparison.OrdinalIgnoreCase) || detail.Contains("vk::", StringComparison.Ordinal)) =>
+            new HubException("The graphics driver crashed while running the model (GPU device lost), usually because GPU memory ran out. In LM Studio, reload the model (optionally with a bit less GPU offload) and close other GPU-heavy apps, then try again."),
+        ClientResultException cre => new HubException($"The local model server returned an error: {ServerError(cre) ?? cre.Message.Split('\n')[0]}"),
         _ => ex,
     };
 }

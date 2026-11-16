@@ -8,6 +8,7 @@
 | Status chip red: "Can't reach http://localhost:1234/v1" | LM Studio's server isn't running | LM Studio → Developer → **Start Server** (the app must be open for the `lms` CLI too) |
 | Status chip amber: "loaded with a 8,192-token context" | Model loaded with LM Studio's default context | Reload the model with context length **16384** (or set LM Studio's default context to 16384) |
 | Chat answers come back empty or cut off | Context too small, or output limit reached | As above; or ask a narrower question |
+| "Service request failed" / "graphics driver crashed (GPU device lost)"; LM Studio log shows `vk::Queue::submit: ErrorDeviceLost` | GPU ran out of memory or hit a driver timeout (model + Power BI Desktop + browser + screen recorder all use VRAM). The model stays broken until reloaded | In LM Studio unload and reload the model, e.g. `lms unload --all` then `lms load qwen/qwen3-14b --context-length 16384 --gpu 0.9 --yes` (90% offload leaves headroom); close GPU-heavy apps |
 | Each answer takes about a minute | Qwen3 "thinking" is on | Keep `Llm:LocalDisableThinking` = true (default) |
 | Dashboard uses the **built-in layout** | The AI wasn't reachable when the dashboard was designed | Fix the AI, then **⋯ → Redesign** |
 | Some designed tiles are missing ("dropped" list) | The AI's DAX failed validation twice | Redesign, or add the tile with **Add tile** and a clearer description |

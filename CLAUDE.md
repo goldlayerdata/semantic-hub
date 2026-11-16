@@ -33,7 +33,8 @@ Hub data (registry, schemas, dashboards, audit log) lives in `%LOCALAPPDATA%\Sem
 
 - v1 verified against a live Desktop model: discovery, approve, schema harvest + profile, dashboards, audit, local Qwen3 14B Q&A.
 - v2 UI built: app shell, first-run guide, filters, explain, tile menu/CSV, chat with live steps + chart answers + pin, add tile, audit v2. Used live by the user (designer with filters, tiles, filter values, chat follow-up).
-- v3 built and checked on the mock: drag tiles by their title, resize from the corner, row reorder / push-down / compaction, autosave + Undo, Lock layout, Arrange menu (keyboard), Edit-tile popover, currency symbols, KPI alignment, breadcrumb, chat start screen. Not yet used on real data.
+- v3 built and checked on the mock: drag tiles by their title, resize from the corner, row reorder / push-down / compaction, autosave + Undo, Lock layout, Arrange menu (keyboard), Edit-tile popover, currency symbols, KPI alignment, breadcrumb, chat start screen. Used live on the Contoso sample for the demo recording (2026-11-16); the owner signed off the PoC as successful.
+- Known gap: on a model with 0 measures the built-in fallback layout (`HeuristicDashboard`) produces no tiles; the AI designer copes by aggregating columns.
 - 83 unit tests pass. Layout saves delete only ids in `removed` (never by omission); each dashboard save keeps a history copy. The Claude provider is experimental and deliberately left untested (owner decision 2026-11-16); local is the supported provider.
 - Never test write endpoints against the user's real hub data — use unit tests or the mock (a test PUT once wiped tiles; restored from the audit log).
 - Proposed next: a hub-level chat that can ask across any online model.
